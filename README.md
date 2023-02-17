@@ -1,18 +1,18 @@
 Sample Social Media Backend
 This is a simple Node.js and MongoDB project that demonstrates the use of Mongoose to define and interact with MongoDB models.
 
-Installation
+Installation:
 Clone the repository
 Run npm install to install the dependencies
 
 
-Usage
+Usage:
 To use the project, follow these steps:
 Start the Node.js server by running npm start
 Use a REST client, such as Postman, to send HTTP requests to the server
 
 
-Models
+Models:
 User
 The User model represents a user in the system. It has the following properties:
 
