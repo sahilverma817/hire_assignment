@@ -1,50 +1,54 @@
-Sample Social Media Backend
+# Social Media Backend
+
 This is a simple Node.js and MongoDB project that demonstrates the use of Mongoose to define and interact with MongoDB models.
 
-Installation:
-Clone the repository
-Run npm install to install the dependencies
+## Installation:
 
+1. Clone the repository
+2. Run `npm install` to install the dependencies
 
-Usage:
+## Usage:
+
 To use the project, follow these steps:
-Start the Node.js server by running npm start
-Use a REST client, such as Postman, to send HTTP requests to the server
 
+1. Start the Node.js server by running `npm start`
+2. Use a REST client, such as Postman, to send HTTP requests to the server
 
-Models:
-User
+## Models:
+
+### User
+
 The User model represents a user in the system. It has the following properties:
 
-name (string, required) - The user's name
-email (string, required, unique) - The user's email address
-password (string, required) - The user's password
-totalLikes (number, default 3) - The total number of likes the user has given
-numPosts (number, default 0) - The total number of posts the user has created
+- `name` (string, required) - The user's name
+- `email` (string, required, unique) - The user's email address
+- `password` (string, required) - The user's password
+- `totalLikes` (number, default 3) - The total number of likes the user has given
+- `numPosts` (number, default 0) - The total number of posts the user has created
 
-Post
+### Post
+
 The Post model represents a post in the system. It has the following properties:
 
-postId (ObjectId, unique, default generated) - The post's ID
-userId (ObjectId, required, ref: 'User') - The ID of the user who created the post
-data (string, required) - The content of the post
-likes (array of objects) - An array of objects representing the users who have liked the post, and the timestamps when they liked it
-userId (ObjectId, required, ref: 'User') - The ID of the user who liked the post
-timestamp (Date, default: Date.now) - The timestamp when the user liked the post
-numLikes (number, default 0) - The total number of likes the post has received
+- `postId` (ObjectId, unique, default generated) - The post's ID
+- `userId` (ObjectId, required, ref: 'User') - The ID of the user who created the post
+- `data` (string, required) - The content of the post
+- `likes` (array of objects) - An array of objects representing the users who have liked the post, and the timestamps when they liked it
+  - `userId` (ObjectId, required, ref: 'User') - The ID of the user who liked the post
+  - `timestamp` (Date, default: Date.now) - The timestamp when the user liked the post
+- `numLikes` (number, default 0) - The total number of likes the post has received
 
+## Dependencies:
 
-Dependencies:
+- `express`
+- `mongoose`
+- `body-parser`
 
-express
-mongoose
-body-parser
+## Endpoints:
 
+### Creating a new user:
 
-Endpoints:
-
-Creating a new user:
-Endpoint: POST /user
+Endpoint: `POST /user`
 
 Request body: {
     name: string, // required
@@ -62,8 +66,8 @@ Response: {
 }
 
 
-Retrieving user info:
-Endpoint: GET /user/:userId
+### Retrieving user info:
+Endpoint: `GET /user/:userId`
 
 Response: {
     _id: ObjectId,
@@ -75,8 +79,8 @@ Response: {
 }
 
 
-Retrieving all posts:
-Endpoint: GET /post
+### Retrieving all posts:
+Endpoint: `GET /post`
 
 Response: [{
     _id: ObjectId,
@@ -90,8 +94,8 @@ Response: [{
 }]
 
 
-Creating a new post:
-Endpoint: POST /post
+### Creating a new post:
+Endpoint: `POST /post`
 
 Request body: {
     userId: ObjectId, // required
@@ -107,8 +111,8 @@ Response: {
 }
 
 
-Liking a post:
-Endpoint: POST /like
+### Liking a post:
+Endpoint: `POST /like`
 
 Request body: {
     postId: ObjectId, // required
@@ -120,8 +124,8 @@ Response: {
 }
 
 
-Retrieving the top 10 most famous posts:
-Endpoint: GET /famous
+### Retrieving the top 10 most famous posts:
+Endpoint: `GET /famous`
 
 Response: [{
     _id: ObjectId,
