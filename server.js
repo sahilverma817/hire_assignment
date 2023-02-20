@@ -35,6 +35,7 @@ app.use(express.json());
 
 
 
+
 app.post('/user', async (req, res) => {
     try {
         const user = new User({

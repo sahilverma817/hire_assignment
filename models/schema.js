@@ -1,5 +1,3 @@
-const { Double } = require('bson');
-const { Decimal128 } = require('mongoose');
 const mongoose = require('mongoose');
 
 // Define the schema for the User collection
